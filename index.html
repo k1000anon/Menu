@@ -15,6 +15,7 @@
             margin: 0;
             background-color: #f4f4f4;
             text-align: center;
+            flex-direction: column;
         }
 
         .container {
@@ -22,6 +23,7 @@
             flex-direction: column; /* Empilhar os botões na vertical por padrão */
             justify-content: center;
             align-items: center;
+            margin-bottom: 50px; /* Espaço para o rodapé */
         }
 
         button {
@@ -64,17 +66,31 @@
                 font-size: 24px; /* Tamanho da fonte reduzido em telas pequenas */
             }
         }
+
+        /* Rodapé */
+        footer {
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
+       
         
         <!-- Botões lado a lado -->
         <button onclick="window.location.href='https://k1000anon.github.io/Calculadora-Datas/'">Calculadora de Datas</button>
         <button onclick="window.location.href='https://k1000anon.github.io/CalculadoraJurosCompostos/'">Calculadora de Juros Compostos</button>
     </div>
+
+    <!-- Rodapé -->
+    <footer>
+        k1000
+    </footer>
 
 </body>
 </html>
