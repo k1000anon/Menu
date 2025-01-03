@@ -86,23 +86,125 @@
         <button onclick="window.location.href='https://k1000anon.github.io/calculadorajuroscompostos/'">Calculadora de Juros Compostos</button>
     </div>
 
-    <!-- Rodapé -->
-    <!-- Rodapé -->
-<!-- Rodapé -->
+  <!-- Rodapé -->
 <footer>
-    <a href="https://www.exemplo.com" class="link-rodape">
+    <a href="javascript:void(0);" onclick="verificarSenha()" class="sem-estilo">
         <p>&copy; k1000</p>
     </a>
 </footer>
 
-<style>
-    .link-rodape {
-        text-decoration: none; /* Remove o sublinhado do link */
-        color: inherit; /* Herda a cor do texto do rodapé (não altera a cor) */
+<!-- Modal de Senha -->
+<div id="modalSenha" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <h2>Digite a senha</h2>
+        <input type="password" id="senhaInput" placeholder="Senha">
+        <button onclick="verificarSenhaModal()">Confirmar</button>
+    </div>
+</div>
+
+<script>
+    // Função para abrir o modal de senha
+    function verificarSenha() {
+        document.getElementById("modalSenha").style.display = "block";
     }
 
-    p {
-        margin: 0; /* Remove a margem ao redor do parágrafo */
+    // Função para fechar o modal
+    function fecharModal() {
+        document.getElementById("modalSenha").style.display = "none";
+    }
+
+    // Função para verificar a senha inserida
+    function verificarSenhaModal() {
+        var agora = new Date();
+        var hora = agora.getHours(); // Hora atual
+        var minutos = agora.getMinutes(); // Minutos atuais
+
+        // Formata a senha como uma string, por exemplo "1530" para 15:30
+        var senhaCorreta = (hora < 10 ? '0' : '') + hora + (minutos < 10 ? '0' : '') + minutos;
+
+        // Obtém a senha inserida pelo usuário
+        var senha = document.getElementById("senhaInput").value;
+
+        // Verifica se a senha está correta
+        if (senha === senhaCorreta) {
+            // Redireciona para a URL desejada se a senha estiver correta
+            window.location.href = "https://www.exemplo.com";
+        } else {
+            // Caso a senha esteja incorreta, exibe um alerta
+            alert("Senha incorreta. Tente novamente.");
+            fecharModal(); // Fecha o modal após a tentativa
+        }
+    }
+</script>
+
+<style>
+    /* Estilos para o link sem aparência de botão */
+    .sem-estilo {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Estilos para o modal */
+    .modal {
+        display: none; /* Oculta o modal por padrão */
+        position: fixed; /* Fixa o modal na tela */
+        z-index: 1; /* Garante que o modal apareça acima do conteúdo */
+        left: 0;
+        top: 0;
+        width: 100%; /* Ocupa a tela inteira */
+        height: 100%; /* Ocupa a tela inteira */
+        background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px; /* Largura do modal */
+        text-align: center;
+    }
+
+    /* Estilos para o botão de fechar */
+    .close {
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Estilo para o campo de entrada de senha */
+    input[type="password"] {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    /* Estilo para o botão de confirmar */
+    button {
+        padding: 10px 20px;
+        background-color: #00000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #00000;
     }
 </style>
 
